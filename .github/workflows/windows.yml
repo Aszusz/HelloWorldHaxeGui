@@ -9,27 +9,29 @@ jobs:
     runs-on: windows-latest
     
     steps:
+      - uses: actions/checkout@v3
+      
       - name: Set up Haxe
         uses: krdlab/setup-haxe@v1
         with:
-          haxe-version: 4.2.5
-      - run: |
-          haxe -version
-          haxelib install hxcpp
-          
-      - uses: actions/checkout@v3
-        name: Check out repository
+          haxe-version: 4.2.5          
 
+      - name: Set up MSVC
       - uses: ilammy/msvc-dev-cmd@v1
-      - name: Run haxe using MSVC
+      
+      - name: Install dependencies
         run: | 
+          haxelib install hxcpp
           haxelib install openfl
           haxelib run openfl setup
           haxelib install feathersui
+          
+      - name: Build project
+        run: |
           haxelib run openfl build project.xml windows -clean
         
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with: 
-          name: assets
+          name: App
           path: bin/windows/bin/NewHaxeFeathersUIProject.exe
