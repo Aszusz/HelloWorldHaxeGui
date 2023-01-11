@@ -22,6 +22,8 @@ jobs:
       
       - name: Run haxe
         run: | 
+          haxelib install openfl
+          haxelib run openfl setup
           haxelib run openfl build project.xml linux -clean
         
       - name: Upload artifacts
