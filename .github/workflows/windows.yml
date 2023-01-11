@@ -22,7 +22,11 @@ jobs:
 
       - uses: ilammy/msvc-dev-cmd@v1
       - name: Run haxe using MSVC
-        run: haxe --main Main --cpp cpp
+        run: | 
+          haxelib install openfl
+          haxelib run openfl setup
+          haxelib install feathersui
+          haxelib run openfl build project.xml windows -clean
         
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
