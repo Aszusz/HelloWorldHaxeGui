@@ -21,7 +21,8 @@ jobs:
         name: Check out repository
       
       - name: Run haxe
-        run: haxe --main Main --cpp cpp
+        run: | 
+          haxelib run openfl build project.xml linux -clean
         
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
