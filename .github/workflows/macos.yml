@@ -31,4 +31,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with: 
           name: assets
-          path: bin/macos/bin/NewHaxeFeathersUIProject.app
+          path: bin/macos/bin/*
