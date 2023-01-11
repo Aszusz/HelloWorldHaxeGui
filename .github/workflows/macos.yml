@@ -26,9 +26,13 @@ jobs:
       - name: Build project
         run: |
           haxelib run openfl build project.xml mac -clean
+          
+      - name: Create pkg
+        run: |
+          productbuild --component bin/macos/bin/NewHaxeFeathersUIProject.app /Applications ./App-macos
         
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with: 
           name: App-macos
-          path: bin/macos/bin/*
+          path: ./App-macos
