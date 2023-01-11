@@ -21,10 +21,14 @@ jobs:
         name: Check out repository
 
       - name: Run haxe
-        run: haxe --main Main --cpp cpp
+        run: | 
+          haxelib install openfl --quiet
+          haxelib run openfl setup --quiet
+          haxelib install feathersui --quiet
+          haxelib run openfl build project.xml mac -clean --quiet
         
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with: 
           name: assets
-          path: cpp/Main
+          path: bin/macos/bin/NewHaxeFeathersUIProject.app
