@@ -32,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with: 
           name: assets
-          path: cpp/Main.exe
+          path: bin/windows/bin/NewHaxeFeathersUIProject.exe
