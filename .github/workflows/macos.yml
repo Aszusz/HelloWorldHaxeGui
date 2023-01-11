@@ -25,7 +25,7 @@ jobs:
           haxelib install openfl --quiet
           haxelib run openfl setup --quiet
           haxelib install feathersui --quiet
-          haxelib run openfl build project.xml mac -clean --quiet
+          haxelib run openfl build project.xml mac -clean
         
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
