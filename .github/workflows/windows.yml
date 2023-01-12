@@ -29,6 +29,11 @@ jobs:
       - name: Build project
         run: |
           haxelib run openfl build project.xml windows -clean
+
+      - name: Create Windows Installer using NSIS
+        run: |
+          makensis installer.nsi
+
         
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
