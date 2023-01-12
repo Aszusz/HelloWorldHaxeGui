@@ -29,14 +29,9 @@ jobs:
       - name: Build project
         run: |
           haxelib run openfl build project.xml windows -clean
-      
-      - name: Build Windows Installer MSI from exe file
-        uses: AliceOh/CreateWindowsInstaller@1.0.0
-        with:
-          exefile: installer-win.exe
         
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with: 
           name: Installer-win
-          path: installer-win.exe
+          path: /bin/windows/bin/NewHaxeFeathersUIProject.exe
