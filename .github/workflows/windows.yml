@@ -29,14 +29,14 @@ jobs:
       - name: Build project
         run: |
           haxelib run openfl build project.xml windows -clean
-          
-      - name: Create nsis installer
-        uses: joncloud/makensis-action@publish
+      
+      - name: Build Windows Installer MSI from exe file
+        uses: AliceOh/CreateWindowsInstaller@1.0.0
         with:
-          additional-plugin-paths: bin/windows/bin/NewHaxeFeathersUIProject.exe
+          exefile: installer-win.exe
         
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with: 
           name: Installer-win
-          path: installsig.exe
+          path: installer-win.exe
