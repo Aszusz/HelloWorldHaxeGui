@@ -168,6 +168,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           path: artifacts/
+          
+      - name: Debug
+        run: ls -la artifacts
 
       - name: Create release
         uses: softprops/action-gh-release@v1
