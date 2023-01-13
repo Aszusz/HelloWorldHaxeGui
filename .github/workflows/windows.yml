@@ -30,21 +30,22 @@ jobs:
         id: cache-bin-restore
         uses: actions/cache/restore@v3
         with:
-          path: bin/windows
+          path: |
+            bin/windows
+            cache
           key: ${{ runner.os }}-cache-bin
-          
-      - name: Debug
-        run: ls -R bin/windows
           
       - name: Build project
         run: |
-          haxelib run openfl build project.xml windows
+          haxelib run openfl build project.xml windows -DHXCPP_COMPILE_CACHE=cache
 
       - name: Save cache bin
         id: cache-bin-save
         uses: actions/cache/save@v3
         with:
-          path: bin/windows
+          path: |
+            bin/windows
+            cache
           key: ${{ runner.os }}-cache-bin
         
       - name: Upload artifacts
