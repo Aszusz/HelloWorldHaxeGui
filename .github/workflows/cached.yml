@@ -50,12 +50,15 @@ jobs:
             bin/linux
             cache
           key: ${{ runner.os }}-cache-bin
+          
+      - name: Tar artifacts
+        run: tar -xcf linux-app.tar bin/linux/bin
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with: 
           name: linux-app
-          path: bin/linux/bin
+          path: linux-app.tar
           
   build-windows:
     name: Build for Windows
@@ -100,12 +103,15 @@ jobs:
             bin/windows
             cache
           key: ${{ runner.os }}-cache-bin
+          
+      - name: Zip artifacts
+        run: zip windows-app.zip bin/windows/bin
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with: 
           name: windows-app
-          path: bin/windows/bin
+          path: windows-app.zip
           
   build-macos:
     name: Build for macOS
