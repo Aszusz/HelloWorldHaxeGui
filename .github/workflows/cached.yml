@@ -28,7 +28,9 @@ jobs:
         id: cache-bin-restore
         uses: actions/cache/restore@v3
         with:
-          path: bin/linux
+          path: |
+            bin/linux
+            cache
           key: ${{ runner.os }}-cache-bin
 
       - name: Build project
@@ -39,7 +41,9 @@ jobs:
         id: cache-bin-save
         uses: actions/cache/save@v3
         with:
-          path: bin/linux
+          path: |
+            bin/linux
+            cache
           key: ${{ runner.os }}-cache-bin
 
       - name: Upload artifacts
@@ -74,7 +78,9 @@ jobs:
         id: cache-bin-restore
         uses: actions/cache/restore@v3
         with:
-          path: bin/windows
+          path: |
+            bin/windows
+            cache
           key: ${{ runner.os }}-cache-bin
 
       - name: Build project
@@ -85,7 +91,9 @@ jobs:
         id: cache-bin-save
         uses: actions/cache/save@v3
         with:
-          path: bin/windows
+          path: |
+            bin/windows
+            cache
           key: ${{ runner.os }}-cache-bin
 
       - name: Upload artifacts
@@ -117,7 +125,9 @@ jobs:
         id: cache-bin-restore
         uses: actions/cache/restore@v3
         with:
-          path: bin/macos
+          path: |
+            bin/macos
+            cache
           key: ${{ runner.os }}-cache-bin
 
       - name: Build project
@@ -128,7 +138,9 @@ jobs:
         id: cache-bin-save
         uses: actions/cache/save@v3
         with:
-          path: bin/macos
+          path: |
+            bin/macos
+            cache
           key: ${{ runner.os }}-cache-bin
           
       - name: Create pkg
