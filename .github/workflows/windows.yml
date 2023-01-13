@@ -33,6 +33,9 @@ jobs:
           path: bin/windows
           key: ${{ runner.os }}-cache-bin
           
+      - name: Debug
+        run: ls -R bin/windows
+          
       - name: Build project
         run: |
           haxelib run openfl build project.xml windows
