@@ -152,3 +152,29 @@ jobs:
         with: 
           name: macos-pkg
           path: ./macos-pkg.pkg
+
+  release:
+    name: Release
+    needs: [build-linux, build-windows, build-macos]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: linux-app
+          path: arte/
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: windows-app
+          path: arte/
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: macos-pkg
+          path: arte/
+
+      - name: List artefacts
+        run: ls -la arte/
+
