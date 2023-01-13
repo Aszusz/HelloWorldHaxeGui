@@ -162,8 +162,18 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
-          path: arte/
+          path: artifacts/
 
-      - name: List artefacts
-        run: ls -la arte/
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            artifacts/linux-app/*
+            artifacts/windows-app/*
+            artifacts/macos-pkg/*
+          draft: true
+          prerelease: true
+          tag_name: ${{ github.sha }}
+          name: ${{ github.sha }}
+          body: Some release notes
 
