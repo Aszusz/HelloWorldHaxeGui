@@ -47,7 +47,7 @@ jobs:
           key: ${{ runner.os }}-cache-bin
           
       - name: Tar artifacts
-        run: tar -cvf linux-app.tar bin/linux/bin
+        run: tar -cvf linux-app.tar ./bin/linux/bin
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
@@ -100,7 +100,10 @@ jobs:
           key: ${{ runner.os }}-cache-bin
           
       - name: Zip artifacts
-        run: zip windows-app.zip bin/windows/bin
+        uses: vimtor/action-zip@v1
+        with:
+          files: bin/windows/bin
+          dest: windows-app.zip
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
