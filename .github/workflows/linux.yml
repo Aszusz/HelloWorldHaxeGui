@@ -4,7 +4,7 @@ on:
   workflow_dispatch
   
 env:
-  OUTPUT_SUFFIX: MySuffix
+  OUTPUT_SUFFIX: true
   
 jobs:
   build:
