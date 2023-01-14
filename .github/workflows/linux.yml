@@ -4,7 +4,7 @@ on:
   workflow_dispatch
   
 env:
-  USE_BIN_CAHCE: true
+  OUTPUT_SUFFIX: MySuffix
   
 jobs:
   build:
@@ -12,8 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - run: echo "cache"
-        if: ${{  env.USE_BIN_CACHE }} === true
-        
-      - run: echo "no cache"
-        if: ${{  env.USE_BIN_CACHE }} === false
+    - name: Use environment variables from entire job
+      run: echo We display the $OUTPUT_SUFFIX define for the entire job1
+
+    - name: Use environment variables from entire job
+      run: echo We reuse the output suffix $OUTPUT_SUFFIX multiples time in the entire job1
+
