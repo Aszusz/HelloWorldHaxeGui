@@ -4,7 +4,7 @@ on:
   workflow_dispatch
   
 env:
-  OUTPUT_SUFFIX: true
+  USE_BIN_CACHE: true
   
 jobs:
   build:
@@ -13,8 +13,8 @@ jobs:
     
     steps:
     - name: Use environment variables from entire job
-      run: echo We display the $OUTPUT_SUFFIX define for the entire job1
+      run: echo We display the $USE_BIN_CACHE define for the entire job1
 
     - name: Use environment variables from entire job
-      run: echo We reuse the output suffix $OUTPUT_SUFFIX multiples time in the entire job1
+      run: echo We reuse the output suffix $USE_BIN_CACHE multiples time in the entire job1
 
