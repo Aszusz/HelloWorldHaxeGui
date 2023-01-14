@@ -4,7 +4,7 @@ on:
   workflow_dispatch
   
 env:
-  MY_VAR: ${{ false }}
+  MY_VAR: false
   
 jobs:
   build:
