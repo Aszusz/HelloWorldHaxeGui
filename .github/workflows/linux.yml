@@ -14,9 +14,9 @@ jobs:
     steps:
     - name: Use environment variables from entire job
       run: echo "caching $MY_VAR"
-      if: ${{ env.MY_VAR }}
+      if: ${{ env.MY_VAR == true }}
 
     - name: Use environment variables from entire job
       run: echo "no caching $MY_VAR"
-      if: ${{ !env.MY_VAR }}
+      if: ${{ env.MY_VAR == false }}
 
