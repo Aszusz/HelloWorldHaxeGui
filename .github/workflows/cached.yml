@@ -53,7 +53,9 @@ jobs:
         uses: actions/upload-artifact@v3
         with: 
           name: linux-app
-          path: linux-app.tar
+          path: linux-app.tar.gz
+          if-no-files-found: error
+          
           
   build-windows:
     name: Build for Windows
