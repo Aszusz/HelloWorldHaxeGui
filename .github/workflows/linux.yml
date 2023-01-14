@@ -3,6 +3,9 @@ name: Haxe Workflow Linux Demo
 on:
   workflow_dispatch
   
+env:
+  USE_BIN_CAHCE: true
+  
 jobs:
   build:
     name: Build
