@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - run: echo ${{ vars.USE_BIN_CACHE }}
+      - run: echo $USE_BIN_CACHE
