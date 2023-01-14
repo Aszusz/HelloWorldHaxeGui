@@ -188,13 +188,12 @@ jobs:
           
       - name: Download all artifacts
         uses: actions/download-artifact@v3
+        
+      - name: Display structure of downloaded files
+        run: ls -R
 
       - name: Create release
         uses: softprops/action-gh-release@v1
         with:
           name: Release
           draft: true
-          files: |
-            linux-app.tar
-            windows-app.zip
-            macos-pkg.pkg
