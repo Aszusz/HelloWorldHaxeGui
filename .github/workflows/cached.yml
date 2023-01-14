@@ -170,13 +170,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download artifacts
+      - name: Download Linux artifacts
         uses: actions/download-artifact@v3
         with:
+          name: linux-app
           path: artifacts/
-          
-      - name: Debug
-        run: ls -la artifacts
+
+      - name: Download Windows artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: windows-app
+          path: artifacts/
+
+      - name: Download macOS artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: macos-pkg
+          path: artifacts/
 
       - name: Create release
         uses: softprops/action-gh-release@v1
@@ -188,7 +198,7 @@ jobs:
             artifacts/macos-pkg.pkg
           draft: true
           prerelease: true
-          tag_name: ${{ github.sha }}
+          tag_name: ${{ github.ref }}
           name: ${{ github.ref }}
           body: Some release notes
 
