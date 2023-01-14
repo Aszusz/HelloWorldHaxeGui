@@ -3,8 +3,8 @@ name: Haxe Workflow Linux Demo
 on:
   workflow_dispatch
   
-# env:
-#   USE_BIN_CACHE: true
+env:
+  USE_BIN_CACHE: ${{ vars.USE_BIN_CACHE }}
   
 jobs:
   build:
