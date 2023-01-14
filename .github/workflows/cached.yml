@@ -197,3 +197,7 @@ jobs:
         with:
           name: Release
           draft: true
+          files: |
+            linux-app
+            windows-app
+            macos-pkg
