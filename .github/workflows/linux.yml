@@ -13,8 +13,10 @@ jobs:
     
     steps:
     - name: Use environment variables from entire job
-      run: echo We display the $USE_BIN_CACHE define for the entire job1
+      run: echo caching
+      if: USE_BIN_CACHE == true
 
     - name: Use environment variables from entire job
-      run: echo We reuse the output suffix $USE_BIN_CACHE multiples time in the entire job1
+      run: echo no caching
+      if: USE_BIN_CACHE == false
 
