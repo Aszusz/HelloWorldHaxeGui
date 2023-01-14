@@ -47,7 +47,7 @@ jobs:
           key: ${{ runner.os }}-cache-bin
           
       - name: Tar artifacts
-        run: tar -C bin/linux/bin -czvf linux-app.tar .
+        run: tar -C bin/linux/bin -czvf linux-app.tar.gz .
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
@@ -198,6 +198,6 @@ jobs:
           name: Release
           draft: true
           files: |
-            linux-app
-            windows-app
-            macos-pkg
+            linux-app/linux-app.tar.gz
+            windows-app/windows-app.zip
+            macos-pkg/macos-pkg.pkg
