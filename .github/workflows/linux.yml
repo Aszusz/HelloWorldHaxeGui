@@ -4,7 +4,7 @@ on:
   workflow_dispatch
   
 env:
-  MY_VAR: ${{ env.USE_CACHE_BIN }}
+  MY_VAR: ${{ USE_CACHE_BIN }}
   
 jobs:
   build:
