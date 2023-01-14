@@ -12,4 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - run: echo ${{ USE_BIN_CAHCE }}
+      - run: echo "cache"
+        if: ${{  USE_BIN_CACHE }} == true
+        
+      - run: echo "no cache"
+        if: ${{  USE_BIN_CACHE }} == false
