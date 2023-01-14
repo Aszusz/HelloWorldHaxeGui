@@ -14,9 +14,9 @@ jobs:
     steps:
     - name: Use environment variables from entire job
       run: echo caching
-      if: ${{ env.USE_BIN_CACHE }} == true
+      if: ${{ env.USE_BIN_CACHE }} === 'true'
 
     - name: Use environment variables from entire job
       run: echo no caching
-      if: ${{ env.USE_BIN_CACHE }} == false
+      if: ${{ env.USE_BIN_CACHE }} === 'false'
 
