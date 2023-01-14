@@ -52,7 +52,7 @@ jobs:
           key: ${{ runner.os }}-cache-bin
           
       - name: Tar artifacts
-        run: tar -xcf linux-app.tar bin/linux/bin
+        run: tar -cvf linux-app.tar bin/linux/bin
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
