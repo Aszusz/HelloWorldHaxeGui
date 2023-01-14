@@ -192,7 +192,6 @@ jobs:
           name: Release
           draft: true
           files: |
-            artifacts/linux-app
-            artifacts/windows-app
-            artifacts/macos-pkg     
-
+            artifacts/linux-app.tar
+            artifacts/windows-app.zip
+            artifacts/macos-pkg.pkg
