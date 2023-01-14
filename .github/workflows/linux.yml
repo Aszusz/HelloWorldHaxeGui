@@ -13,7 +13,7 @@ jobs:
     
     steps:
       - run: echo "cache"
-        if: ${{  env.USE_BIN_CACHE }} == true
+        if: ${{  env.USE_BIN_CACHE }} === true
         
       - run: echo "no cache"
-        if: ${{  env.USE_BIN_CACHE }} == false
+        if: ${{  env.USE_BIN_CACHE }} === false
