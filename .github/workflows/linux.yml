@@ -4,7 +4,7 @@ on:
   workflow_dispatch
   
 env:
-  MY_VAR: 'no-cache'
+  MY_VAR: ${{ env.USE_CACHE_BIN }}
   
 jobs:
   build:
@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Use environment variables from entire job
+    - name: Use Cache
       run: echo "caching $MY_VAR"
       if: ${{ env.MY_VAR == 'cache' }}
 
-    - name: Use environment variables from entire job
+    - name: Use No Cache
       run: echo "no caching $MY_VAR"
       if: ${{ env.MY_VAR == 'no-cache' }}
 
