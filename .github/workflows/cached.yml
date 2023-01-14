@@ -47,7 +47,7 @@ jobs:
           key: ${{ runner.os }}-cache-bin
           
       - name: Tar artifacts
-        run: tar -cvf linux-app.tar ./bin/linux/bin
+        run: tar -C bin/linux/bin -czvf linux-app.tar *
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
@@ -168,23 +168,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download Linux artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: linux-app
-          path: artifacts/
+#       - name: Download Linux artifacts
+#         uses: actions/download-artifact@v3
+#         with:
+#           name: linux-app
+#           path: artifacts/
 
-      - name: Download Windows artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: windows-app
-          path: artifacts/
+#       - name: Download Windows artifacts
+#         uses: actions/download-artifact@v3
+#         with:
+#           name: windows-app
+#           path: artifacts/
 
-      - name: Download macOS artifacts
+#       - name: Download macOS artifacts
+#         uses: actions/download-artifact@v3
+#         with:
+#           name: macos-pkg
+#           path: artifacts/
+          
+      - name: Download all artifacts
         uses: actions/download-artifact@v3
-        with:
-          name: macos-pkg
-          path: artifacts/
 
       - name: Create release
         uses: softprops/action-gh-release@v1
@@ -192,6 +195,6 @@ jobs:
           name: Release
           draft: true
           files: |
-            artifacts/linux-app.tar
-            artifacts/windows-app.zip
-            artifacts/macos-pkg.pkg
+            linux-app.tar
+            windows-app.zip
+            macos-pkg.pkg
