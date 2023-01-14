@@ -3,7 +3,7 @@ name: Haxe Workflow Linux Demo
 on:
   workflow_dispatch
   
-env:
+# env:
 #   USE_BIN_CACHE: true
   
 jobs:
