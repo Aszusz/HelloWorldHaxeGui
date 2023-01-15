@@ -8,7 +8,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     env:
-      MY_VAR: cache
+      MY_VAR: ${{ vars.USE_CACHE_BIN }}
     steps:
     - name: Use Cache
       if: env.MY_VAR == 'cache'
