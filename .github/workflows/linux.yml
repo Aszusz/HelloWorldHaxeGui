@@ -4,7 +4,7 @@ on:
   workflow_dispatch
   
 env:
-  MY_VAR: ${{ vars.USE_CACHE_BIN }}
+  MY_VAR: 'cache'
   
 jobs:
   build:
@@ -14,9 +14,10 @@ jobs:
     steps:
     - name: Use Cache
       run: echo "caching $MY_VAR"
-      if: ${{ env.MY_VAR == 'cache' }}
+      if: ${{ env.MY_VARIABLE }} == 'cache'
 
     - name: Use No Cache
       run: echo "no caching $MY_VAR"
-      if: ${{ env.MY_VAR == 'no-cache' }}
+      if: ${{ env.MY_VARIABLE }} == 'no-cache'
+
 
