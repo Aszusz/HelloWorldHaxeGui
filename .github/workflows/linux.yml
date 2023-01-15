@@ -3,19 +3,17 @@ name: Haxe Workflow Linux Demo
 on:
   workflow_dispatch
   
-env:
-  MY_VAR: cache
-  
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    
+    env:
+      MY_VAR: cache
     steps:
     - name: Use Cache
+      if: env.MY_VAR == 'cache'
       run: echo "caching $MY_VAR"
-      if: ${{ env.MY_VAR }} == 'cache'
 
     - name: Use No Cache
+      if: env.MY_VAR == 'no-cache'
       run: echo "no caching $MY_VAR"
-      if: ${{ env.MY_VAR }} == 'no-cache'
