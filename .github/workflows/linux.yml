@@ -14,10 +14,10 @@ jobs:
     steps:
     - name: Use Cache
       run: echo "caching $MY_VAR"
-      if: ${{ env.MY_VARIABLE }} == 'cache'
+      if: ${{ env.MY_VAR }} == 'cache'
 
     - name: Use No Cache
       run: echo "no caching $MY_VAR"
-      if: ${{ env.MY_VARIABLE }} == 'no-cache'
+      if: ${{ env.MY_VAR }} == 'no-cache'
 
 
