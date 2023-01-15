@@ -19,5 +19,3 @@ jobs:
     - name: Use No Cache
       run: echo "no caching $MY_VAR"
       if: ${{ env.MY_VAR }} == 'no-cache'
-
-
