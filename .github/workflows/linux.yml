@@ -11,9 +11,9 @@ jobs:
       MY_VAR: ${{ vars.USE_BIN_CACHE }}
     steps:
     - name: Use Cache
-      if: env.MY_VAR == 'cache'
+      if: env.MY_VAR
       run: echo "caching $MY_VAR"
 
     - name: Use No Cache
-      if: env.MY_VAR == 'no-cache'
+      if: env.MY_VAR
       run: echo "no caching $MY_VAR"
