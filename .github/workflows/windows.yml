@@ -50,8 +50,14 @@ jobs:
             .cache
           key: ${{ runner.os }}-cache-bin
         
+      - name: Zip artifacts
+        uses: vimtor/action-zip@v1
+        with:
+          files: bin/windows/bin
+          dest: windows-app.zip
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with: 
           name: windows-app
-          path: bin/windows/bin
+          path: windows-app.zip
