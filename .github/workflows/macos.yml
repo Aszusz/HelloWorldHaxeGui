@@ -49,10 +49,10 @@ jobs:
           
       - name: Create pkg
         run: |
-          productbuild --component bin/macos/bin/NewHaxeFeathersUIProject.app /Applications ./App-macos.pkg
-        
+          productbuild --component bin/macos/bin/NewHaxeFeathersUIProject.app /Applications ./macos-pkg.pkg
+          
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with: 
-          name: App-macos
-          path: ./App-macos.pkg
+          name: macos-pkg
+          path: ./macos-pkg.pkg
