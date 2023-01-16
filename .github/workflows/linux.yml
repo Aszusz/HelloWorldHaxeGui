@@ -63,14 +63,20 @@ jobs:
             bin/linux
             .cache
           key: ${{ runner.os }}-cache-bin        
+          
+      - uses: flatpak/flatpak-github-actions/flatpak-builder@v4
+        with:
+          manifest-path: linux-installer/manifest.yaml
       
-      - name: Tar artifacts
-        run: tar -C bin/linux/bin -czvf linux-app.tar.gz .
+#       - name: Tar artifacts
+#         run: tar -C bin/linux/bin -czvf linux-app.tar.gz .
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
-        with: 
-          name: linux-app
-          path: linux-app.tar.gz
-          if-no-files-found: error
+#       - name: Upload artifacts
+#         uses: actions/upload-artifact@v3
+#         with: 
+#           name: linux-app
+#           path: linux-app.tar.gz
+#           if-no-files-found: error
+
+      - run: ls -R
           
