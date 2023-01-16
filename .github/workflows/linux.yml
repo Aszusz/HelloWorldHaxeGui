@@ -8,14 +8,14 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     
-    env:
-      USE_BIN_CACHE: 'true'
+#     env:
+#       USE_BIN_CACHE: 'true'
 
     steps:
     - name: Use Cache
-      if: env.USE_BIN_CACHE == 'true'
+      if: vars.USE_BIN_CACHE == 'true'
       run: echo "caching $MY_VAR"
 
     - name: Use No Cache
-      if: env.USE_BIN_CACHE == 'false'
+      if: vars.USE_BIN_CACHE == 'false'
       run: echo "no caching $MY_VAR"
