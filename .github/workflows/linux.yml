@@ -8,8 +8,8 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     
-    env:
-      USE_BIN_CACHE: ${{ vars.USE_BIN_CACHE }}
+#     env:
+#       USE_BIN_CACHE: ${{ vars.USE_BIN_CACHE }}
 
     steps:
     - name: Use Cache
