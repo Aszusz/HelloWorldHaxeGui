@@ -55,6 +55,9 @@ jobs:
       options: --privileged
       
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        
       - name: Restore cache bin
         id: cache-bin-restore
         uses: actions/cache/restore@v3
