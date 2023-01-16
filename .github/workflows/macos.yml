@@ -36,7 +36,7 @@ jobs:
           
       - name: Build project
         run: |
-          haxelib run openfl build project.xml mac -DHXCPP_COMPILE_CACHE=.cache
+          haxelib run openfl build project.xml mac -DHXCPP_COMPILE_CACHE=cache
           
       - name: Save cache bin
         id: cache-bin-save
