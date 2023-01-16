@@ -1,7 +1,8 @@
-name: Haxe Workflow macOS Demo
+name: MacOS Buil
   
 on:
-  workflow_dispatch
+  - workflow_dispatch
+  - workflow_call
   
 jobs:
   build:
@@ -23,9 +24,28 @@ jobs:
           haxelib run openfl setup
           haxelib install feathersui
           
+      - name: Restore cache bin
+        id: cache-bin-restore
+        if: vars.USE_BIN_CACHE == 'true'
+        uses: actions/cache/restore@v3
+        with:
+          path: |
+            bin/macos
+            .cache
+          key: ${{ runner.os }}-cache-bin
+          
       - name: Build project
         run: |
-          haxelib run openfl build project.xml mac -clean
+          haxelib run openfl build project.xml mac -DHXCPP_COMPILE_CACHE=.cache
+          
+      - name: Save cache bin
+        id: cache-bin-save
+        uses: actions/cache/save@v3
+        with:
+          path: |
+            bin/macos
+            .cache
+          key: ${{ runner.os }}-cache-bin
           
       - name: Create pkg
         run: |
