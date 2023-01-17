@@ -50,14 +50,11 @@ jobs:
             .cache
           key: ${{ runner.os }}-cache-bin
         
-      - name: Zip artifacts
-        uses: vimtor/action-zip@v1
-        with:
-          files: bin/windows/bin
-          dest: windows-app.zip
+      - name: Create installer
+        run: makensis win-installer/install.nsi
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with: 
-          name: windows-app
+          name: win-installer/NewHaxeFeathersUIProject-Setup.exe
           path: windows-app.zip
