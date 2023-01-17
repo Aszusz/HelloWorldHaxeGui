@@ -56,5 +56,5 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with: 
-          name: win-installer/NewHaxeFeathersUIProject-Setup.exe
-          path: windows-app.zip
+          name: windows-installer
+          path: win-installer/NewHaxeFeathersUIProject-Setup.exe
