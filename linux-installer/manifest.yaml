@@ -10,4 +10,4 @@ modules:
       - install -D NewHaxeFeathersUIProject /app/bin/NewHaxeFeathersUIProject
     sources:
       - type: file
-        path: NewHaxeFeathersUIProject
+        path: bin/linux/bin/NewHaxeFeathersUIProject
