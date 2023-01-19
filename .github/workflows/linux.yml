@@ -55,6 +55,6 @@ jobs:
           mkdir NewHaxeFeathersUIProject.AppDir/usr/lib          
           mv bin/linux/bin/NewHaxeFeathersUIProject NewHaxeFeathersUIProject.AppDir/usr/bin/
           mv bin/linux/bin/lime.ndll NewHaxeFeathersUIProject.AppDir/usr/lib/
-          mv assets/feathersui.svg ewHaxeFeathersUIProject.AppDir/icon
+          mv assets/feathersui.svg NewHaxeFeathersUIProject.AppDir/icon
           appimagetool NewHaxeFeathersUIProject.AppDir/
           ls -R
