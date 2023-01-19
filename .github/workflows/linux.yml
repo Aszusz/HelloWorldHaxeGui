@@ -50,7 +50,6 @@ jobs:
           
       - name: Create AppImage
         run: |
-          mkdir NewHaxeFeathersUIProject.AppDir
           mkdir NewHaxeFeathersUIProject.AppDir/usr
           mkdir NewHaxeFeathersUIProject.AppDir/usr/bin
           mkdir NewHaxeFeathersUIProject.AppDir/usr/lib          
