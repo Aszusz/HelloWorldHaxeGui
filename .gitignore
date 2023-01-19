@@ -1,2 +1,4 @@
 /bin
 /win-installer/*.exe
+NewHaxeFeathersUIProject.AppDir/usr/bin/*
+NewHaxeFeathersUIProject.AppDir/usr/lib/*
