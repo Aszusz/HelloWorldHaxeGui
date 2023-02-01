@@ -1,4 +1,4 @@
-name: Draft Dev Release
+name: Update Wiki
 on: workflow_dispatch
 
 jobs:
