@@ -26,4 +26,5 @@ jobs:
         uses: OrlovM/Wiki-Action@v1
         with:
           path: versioninfodev.json
+          token: ${{ secrets.GITHUB_TOKEN }}
     
