@@ -6,6 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        
       - name: json-to-file
         uses: devops-actions/json-to-file@v1.0.1
         with:
