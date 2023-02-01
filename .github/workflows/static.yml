@@ -47,7 +47,7 @@ jobs:
                 "nuget_url": "link"
               }
             }
-          filename: public/versioninfodev.json
+          filename: public/versioninfo.json
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
