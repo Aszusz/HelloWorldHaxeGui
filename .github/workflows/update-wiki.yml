@@ -1,0 +1,29 @@
+name: Draft Dev Release
+on: workflow_dispatch
+
+jobs:
+  update-wiki:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: json-to-file
+        uses: devops-actions/json-to-file@v1.0.1
+        with:
+          json: |
+            {
+              "env": "development",
+              "version": "1.0.0-dev",
+              "platforms": {
+                "linux_url": "link",
+                "windows_url": "link",
+                "macos_url": "link",
+                "nuget_url": "link"
+              }
+            }
+          filename: versioninfodev.json
+          
+      - name: Update wiki
+        uses: OrlovM/Wiki-Action@v1
+        with:
+          path: versioninfodev.json
+    
