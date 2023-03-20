@@ -61,10 +61,8 @@ jobs:
           New-Item -ItemType directory -Path certificate
           Set-Content -Path certificate\certificate.txt -Value $env:CODESIGN_BASE64
           certutil -decode certificate\certificate.txt certificate\certificate.pfx
-          Set-Content -Path certificate\intermediate.txt -Value $env:CODESIGN_INTERMEDIATE_BASE64
-          certutil -decode certificate\intermediate.txt certificate\intermediate.crt
 
-          & 'C:/Program Files (x86)/Windows Kits/10/bin/10.0.22621.0/x86/signtool.exe' sign /fd SHA256 /p $env:CODESIGN_PWD /ac certificate\intermediate.crt /f certificate\certificate.pfx /tr "http://timestamp.sectigo.com/rfc3161" /td sha256 win-installer/NewHaxeFeathersUIProject-Setup.exe
+          & 'C:/Program Files (x86)/Windows Kits/10/bin/10.0.22621.0/x86/signtool.exe' sign /fd SHA256 /p $env:CODESIGN_PWD /f certificate\certificate.pfx /tr "http://timestamp.sectigo.com/rfc3161" /td sha256 win-installer/NewHaxeFeathersUIProject-Setup.exe
 
           Remove-Item -Recurse -Force certificate
 
